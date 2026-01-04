@@ -177,14 +177,14 @@ void put_new_tile(void) {
 int main(int argc, char **argv) {
     srand(time(0));
 
-    switch_to_alt_buffer();
-    enable_raw_mode();
-
     size = argc > 1 ? (*argv[1] - '0') : 4;
     if (size <= 1 || size > 8) {
         fputs("invalid board size\n", stderr);
         return 1;
     }
+
+    switch_to_alt_buffer();
+    enable_raw_mode();
 
     put_new_tile();
     put_new_tile();
